@@ -1,7 +1,7 @@
 let url = "https://sugang.korea.ac.kr/sugang?attribute=sugangMode&fake="
 let tm = null;
 let dt = new FormData();
-let cnt = 0, timer = 0;
+let cnt = 0, timer = 0, rands = 1;
 // let year = "2022", term = "2R"
 dt.set("mode", "insert");
 
@@ -90,8 +90,8 @@ function res() {
             console.log("end!!!!"), tm=clearTimeout(tm);
             return;
         }
-        if(timer==0) $('#menu_basket').click(), $('#menu_sugang').click(), checking();
-        timer++, timer%=60;
+        if(timer==0) $('#menu_basket').click(), $('#menu_sugang').click(), checking(), rands = Math.floor(Math.random() * 30 + 60);
+        timer++, timer%=rands;
         res();
     }, 1000*1);
     console.log(cnt);
