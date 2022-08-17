@@ -63,7 +63,6 @@ function selling() {
             { 
                 console.log("selling: " + clss + "!");
                 dt.set("params",clss);
-                mp2.delete(clss);
                 $.ajax({
                     url : url + String(new Date().getTime()),
                     type : 'post',
@@ -75,8 +74,11 @@ function selling() {
                 }).done(function(json){
                     console.log(clss);
                     console.log(json);
-                    if(json.code != "200") mp.set(clss, null);
-                    else cnt++;
+                    if(!json.msg.includes("수강매매")) {
+                        mp2.delete(clss);
+                        if(json.code != "200") mp.set(clss, null);
+                        else cnt++;
+                    }
                 });
             }
         })(i)
