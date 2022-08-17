@@ -90,7 +90,7 @@ function res() {
             console.log("end!!!!"), tm=clearTimeout(tm);
             return;
         }
-        if(timer==0) $('#menu_basket').click(), $('#menu_sugang').click(), checking(), rands = Math.floor(Math.random() * 30 + 60);
+        if(timer==0) $('#menu_basket').click(), $('#menu_sugang').click(), checking(), rands = Math.floor(Math.random() * 300 + 300);
         timer++, timer%=rands;
         res();
     }, 1000*1);
