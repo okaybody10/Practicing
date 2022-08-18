@@ -6,14 +6,10 @@ dt.set("mode", "insert");
 
 let classes =
 [
-    ['MATH212','02'], 
-    ['COSE382','01'],
-    ['COSE474','02'],
-    ['MATH201','01'],
-    ['MATH392','01'],
-    ['MATH222','02'],
-    ['STAT232','02'],
-    ['GECT001','00']
+    ['GELI002','CA'], 
+    ['IFLS012','C1'],
+    ['NRSG250','01'],
+    ['GEHI084','00']
 ]
 
 function sugang(lists){
