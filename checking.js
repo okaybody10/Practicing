@@ -3,9 +3,9 @@ let empty_check = "https://sugang.korea.ac.kr/sugang?attribute=viewClose&fake=";
 let tm = null;
 let dt = new FormData();
 let dt_check = new FormData();
-let cnt = 0, timer = 0, grade = 2;
-let year = "2022", term = "2R";
-let exchange = true;
+let cnt = 0, timer = 0, grade = 2; // please update grade
+let year = "2022", term = "2R"; // please update term
+let exchange = true; // if not correlation, plase update
 dt.set("mode", "insert");
 dt_check.set("year", year);
 dt_check.set("term", term);
