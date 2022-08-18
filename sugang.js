@@ -44,7 +44,7 @@ function res(lists){
         }
         timer++;
         res(lists);
-    }, 1000*3);
+    }, 500*3);
     console.log(cnt);
 }
 
@@ -54,7 +54,7 @@ let x = setInterval(()=>{
     $('#menu_basket').click();
     $('#menu_sugang').click();
     console.log(new Date());
-    if((new Date())>(new Date(2022, 01, 17, 09, 59, 48))) {
+    if((new Date())>(new Date(2022, 07, 19, 09, 59, 55))) {
         res(classes);
         clearInterval(x);
     }
