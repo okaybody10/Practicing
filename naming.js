@@ -1,8 +1,13 @@
+let url = "https://sugang.korea.ac.kr/sugang?attribute=viewClose&fake="
 let mp = new Map();
 let ss = "";
 let year = '2022', term = '2R';
+let dt = new FormData();
+let cnt = 0, timer = 0;
+dt.set("year", year);
+dt.set("term", term);
 
-let classes = [];
+let classes = ['HEED174', '00'];
 
 function refresh() {
     mp.clear();
