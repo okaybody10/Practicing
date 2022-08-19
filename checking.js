@@ -3,20 +3,16 @@ let empty_check = "https://sugang.korea.ac.kr/sugang?attribute=viewClose&fake=";
 let tm = null;
 let dt = new FormData();
 let dt_check = new FormData();
-let cnt = 0, timer = 0, grade = 2; // please update grade
-let year = "2022", term = "2R"; // please update term
-let exchange = true; // if not correlation, plase update
+let cnt = 0, timer = 0, grade = 1; // please update grade
+let years = "2022", terms = "2R"; // please update term
+let exchange = true; // if not correlation, plase update (false => correlation, true => not correlation)
 dt.set("mode", "insert");
-dt_check.set("year", year);
-dt_check.set("term", term);
+dt_check.set("year", years);
+dt_check.set("term", terms);
 
 let subjects =
 [
-    ['MATH212','02'], 
-    ['MATH201','01'],
-    ['MATH392','01'],
-    ['STAT232','02'],
-    ['BUSS244','01']
+    ['GEHI084','00']
 ]
 
 // mp2: If empty & in person
@@ -155,6 +151,8 @@ function res() {
             $('#menu_basket').click();
             $('#menu_sugang').click();
             timer = 0;
+            console.clear();
+            console.log(mp2);
         }
         res();
     }, 1000*1);
