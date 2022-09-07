@@ -5,14 +5,14 @@ let dt = new FormData();
 let dt_check = new FormData();
 let cnt = 0, timer = 0, grade = 1; // please update grade
 let years = "2022", terms = "2R"; // please update term
-let exchange = true; // if not correlation, plase update (false => correlation, true => not correlation)
+let exchange = false; // if not correlation, plase update (false => correlation, true => not correlation)
 dt.set("mode", "insert");
 dt_check.set("year", years);
 dt_check.set("term", terms);
 
 let subjects =
 [
-    ['GEHI084','00']
+    ['HANM120','09']
 ]
 
 // mp2: If empty & in person
@@ -112,7 +112,7 @@ function selling() {
     for(let i=0;i<t;i++){
         (function(i){
             let clss = classes[i], times = timers[i];
-            if(Math.abs(times - new Date()) <= 5000)
+            if(Math.abs(times - new Date()) <= 1000)
             { 
                 console.log("selling: " + clss + "!");
                 dt.set("params",clss);
@@ -130,7 +130,6 @@ function selling() {
                     if(!json.msg.includes("수강매매")) {
                         mp2.delete(clss);
                         if(json.code != "200") mp.set(clss, false);
-                        else cnt++;
                     }
                 });
             }
@@ -155,7 +154,7 @@ function res() {
             console.log(mp2);
         }
         res();
-    }, 1000*1);
+    }, 100);
     console.log("cnt: "+ cnt + "timer: " + timer);
 }
 
