@@ -6,13 +6,15 @@ let dt_check = new FormData();
 let cnt = 0, timer = 0, grade = 1; // please update grade
 let years = "2022", terms = "2R"; // please update term
 let exchange = false; // if not correlation, plase update (false => correlation, true => not correlation)
+let ttm = 0;
 dt.set("mode", "insert");
 dt_check.set("year", years);
 dt_check.set("term", terms);
 
 let subjects =
 [
-    ['HANM120','09']
+    ['ECON329','00'],
+    ['ECON173','01']
 ]
 
 // mp2: If empty & in person
@@ -46,6 +48,7 @@ function is_empty_checking() {
                 let nw = eval($(e[every]).find('td')[0].innerText);
                 let en = eval($(e[every]).find('td')[1].innerText);
                 if(exchange  && every != grade) nw -= parseInt($(e[5]).find('td')[0].innerText), en -= parseInt($(e[5]).find('td')[1].innerText)
+                nw -= parseInt($(e[6]).find('td')[0].innerText)
                 console.log(nw, en);
                 if(nw < en){
                     // request part
@@ -140,7 +143,6 @@ function selling() {
 function res() {
     tm=setTimeout(()=>{
         selling();
-        is_empty_checking();
         timer++;
         if(cnt==mp.size) {
             console.log("end!!!!"), tm=clearTimeout(tm);
@@ -152,6 +154,7 @@ function res() {
             timer = 0;
             console.clear();
             console.log(mp2);
+            is_empty_checking();
         }
         res();
     }, 100);
@@ -162,6 +165,7 @@ function register(lists){
     lists.forEach(element => {
         mp.set(element[0] + "@" + element[1], false);
     });
+    is_empty_checking();
     res();
 }
 
