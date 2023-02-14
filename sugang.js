@@ -2,15 +2,18 @@ let url = "https://sugang.korea.ac.kr/sugang?attribute=sugangMode&fake="
 let tm = null;
 let dt = new FormData();
 let cnt = 0, timer = 0;
-dt.set("mode", "insert");
+dt.set("mode", "delete");
+
+let deleted_classes = [
+
+]
 
 let classes =
 [
-    ['GELI002','CA'], 
-    ['IFLS012','C1'],
-    ['NRSG250','01'],
-    ['GEHI084','00']
+    ['KECE449','00']
 ]
+
+let deleted = false;
 
 function sugang(lists){
     for(let i=0;i<lists.length;i++){
@@ -40,6 +43,7 @@ function res(lists){
         sugang(lists);
         if(cnt==lists.length || timer > 20) {
             console.log("end!!!!"), tm=clearTimeout(tm);
+            cnt=0;
             return;
         }
         timer++;
@@ -54,7 +58,13 @@ let x = setInterval(()=>{
     $('#menu_basket').click();
     $('#menu_sugang').click();
     console.log(new Date());
-    if((new Date())>(new Date(2022, 07, 19, 09, 59, 55))) {
+    if((new Date())>(new Date(2023, 01, 14, 16, 32, 10)) && deleted != true) {
+        res(deleted_classes);
+        deleted = true;
+        cnt = 0;
+    }
+    if((new Date())>(new Date(2023, 01, 14, 16, 32, 20))) {
+        dt.set("mode", "insert")
         res(classes);
         clearInterval(x);
     }
