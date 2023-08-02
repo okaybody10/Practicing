@@ -1,4 +1,4 @@
-let url = "https://sugang.korea.ac.kr/sugang?attribute=sugangMode&fake="
+let url = "https://sugang.korea.ac.kr/basket?attribute=basketMode&fake="
 let tm = null;
 let dt = new FormData();
 let cnt = 0, timer = 0;
@@ -10,10 +10,13 @@ let deleted_classes = [
 
 let classes =
 [
-    ['KECE449','00']
+    ['COSE222','03'],
+    ['COSE362','02'],
+    ['MATH161','05'],
+    ['COSE341','02'],
 ]
 
-let deleted = false;
+let deleted = true;
 
 function sugang(lists){
     for(let i=0;i<lists.length;i++){
@@ -54,16 +57,17 @@ function res(lists){
 
 //res(classes);
 
+vv = document.querySelector("#Main").contentWindow.document.body.querySelector("#coreMain").contentWindow.document.body
 let x = setInterval(()=>{
-    $('#menu_basket').click();
-    $('#menu_sugang').click();
+    vv.querySelector("#menu_sugang").click()
+    vv.querySelector("#menu_basket").click()
     console.log(new Date());
-    if((new Date())>(new Date(2023, 01, 14, 16, 32, 10)) && deleted != true) {
+    if((new Date())>(new Date(2023, 07, 02, 16, 32, 10)) && deleted != true) {
         res(deleted_classes);
         deleted = true;
         cnt = 0;
     }
-    if((new Date())>(new Date(2023, 01, 14, 16, 32, 20))) {
+    if((new Date())>(new Date(2023, 07, 02, 16, 32, 20))) {
         dt.set("mode", "insert")
         res(classes);
         clearInterval(x);
