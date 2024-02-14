@@ -1,4 +1,4 @@
-let url = "https://sugang.korea.ac.kr/basket?attribute=basketMode&fake="
+let url = "https://sugang.korea.ac.kr/sugang?attribute=sugangMode&fake="
 let tm = null;
 let dt = new FormData();
 let cnt = 0, timer = 0;
